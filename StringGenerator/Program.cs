@@ -12,17 +12,20 @@ namespace StringGenerator
             string maybeSeed = args[0];
             
             bool sucesso = int.TryParse(maybeSeed, out int seed);
-            if(sucesso == false)
-            {
-                Console.WriteLine("Nope");
-            }
-            else
+            if(sucesso)
             {
                 Model m = new Model(seed);
                 Controller start = new Controller(m);
                 View v = new View(start);
 
                 v.WriteStart();
+            }
+            else
+            {
+                Model m = new Model(1);
+                Controller start = new Controller(m);
+                View v = new View(start);
+                v.Error();
             }
             
         }
