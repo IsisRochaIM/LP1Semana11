@@ -19,10 +19,10 @@ namespace StringGenerator
             else
             {
                 Model m = new Model(seed);
-
                 Controller start = new Controller(m);
+                View v = new View(start);
 
-                Console.WriteLine(start.Generate());
+                v.WriteStart();
             }
             
         }
